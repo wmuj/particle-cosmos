@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, viewport-fit=cover">
+<title>粒子宇宙 PARTICLE COSMOS</title>
+<meta name="description" content="十几万颗发光粒子听你号令:搅动星云、引爆冲击波、坠入黑洞、把你想说的话点亮成星辰。">
+<meta property="og:title" content="粒子宇宙 PARTICLE COSMOS">
+<meta property="og:description" content="打一句话,让十几万颗粒子替你点亮它。">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>✨</text></svg>">
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+<canvas id="cosmos"></canvas>
+<div id="flash"></div>
+
+<!-- 顶部 -->
+<header id="topbar" class="ui">
+  <div class="brand">
+    <span class="brand-cn">粒子宇宙</span>
+    <span class="brand-en">PARTICLE COSMOS</span>
+  </div>
+  <div class="top-right">
+    <span id="stat" class="stat"></span>
+    <button id="btn-sound" class="icon-btn" title="音效">♪</button>
+    <button id="btn-full" class="icon-btn" title="全屏">⛶</button>
+  </div>
+</header>
+
+<!-- 开场提示 -->
+<div id="hint" class="ui">移动搅动星尘 · 点击引爆冲击波 · 打一句话点亮它</div>
+
+<!-- 底部控制台 -->
+<footer id="dock" class="ui">
+  <div class="modes">
+    <button class="mode-btn active" data-mode="galaxy">星云</button>
+    <button class="mode-btn" data-mode="blackhole">黑洞</button>
+    <button class="mode-btn" data-mode="fireworks">烟花</button>
+  </div>
+  <div class="type-wrap">
+    <input id="text-input" type="text" maxlength="12" placeholder="打一句话,点亮成星辰…" autocomplete="off">
+    <button id="btn-ignite">点亮</button>
+  </div>
+  <div class="side">
+    <div class="palettes" id="palettes"></div>
+    <button id="btn-shot" class="shot-btn" title="保存这一刻">截图</button>
+  </div>
+</footer>
+
+<!-- 截图弹层 -->
+<div id="shot-modal" class="hidden">
+  <div class="shot-body">
+    <img id="shot-img" alt="粒子宇宙截图">
+    <p class="shot-hint">长按或右键保存 · 把你的宇宙发出去</p>
+    <div class="shot-actions">
+      <a id="shot-download" download="粒子宇宙.png">下载图片</a>
+      <button id="shot-close">关闭</button>
+    </div>
+  </div>
+</div>
+
+<script src="js/main.js"></script>
+</body>
+</html>
