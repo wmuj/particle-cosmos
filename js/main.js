@@ -259,8 +259,15 @@
     if (tw < 10 || th < 10) return false;
     textCanvas.width = tw; textCanvas.height = th;
     textCtx.clearRect(0, 0, tw, th);
+    var FONT = '"Noto Serif SC","Source Han Serif SC","Songti SC",SimSun,"Microsoft YaHei",serif';
     var fs = Math.floor(Math.min(th * 0.72, (tw * 0.92) / Math.max(1, str.length) * 1.28));
-    textCtx.font = '900 ' + fs + 'px "Noto Serif SC","Source Han Serif SC","Songti SC",SimSun,"Microsoft YaHei",serif';
+    textCtx.font = '900 ' + fs + 'px ' + FONT;
+    // 中文全宽字形会超出估算宽度,实测后按比例缩到画布内,避免窄屏两侧被裁
+    var mw = textCtx.measureText(str).width;
+    if (mw > tw * 0.94) {
+      fs = Math.max(10, Math.floor(fs * (tw * 0.94) / mw));
+      textCtx.font = '900 ' + fs + 'px ' + FONT;
+    }
     textCtx.textAlign = 'center';
     textCtx.textBaseline = 'middle';
     textCtx.fillStyle = '#fff';
